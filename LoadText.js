@@ -1,9 +1,14 @@
 function LoadText() {
     const form = document.getElementById('nurseForm');
-    const formData = new FormData(form);
+    const nurse_id = form.nurse_id.value;
+    const ward_id = form.ward_id.value;
+    const shift = form.shift.value;
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'query_results.php', true);
+    const url = `query_results.php?nurse_id=${nurse_id}&ward_id=${ward_id}&shift=${shift}`;
+    const a= 2;
+
+    const xhr = new XMLHttpRequest(); 
+    xhr.open('GET', url, true);
 
     xhr.onload = function () {
         if (xhr.status === 200) {
@@ -18,5 +23,5 @@ function LoadText() {
         document.getElementById('output').textContent = 'Помилка зʼєднання';
     };
 
-    xhr.send(formData);
+    xhr.send();
 }
