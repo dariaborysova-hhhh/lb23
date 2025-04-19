@@ -3,10 +3,10 @@ include 'db_connect.php';
 
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nurse_id = $_POST['nurse_id'];
-    $ward_id = $_POST['ward_id'];
-    $shift = $_POST['shift'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $nurse_id = $_GET['nurse_id'];
+    $ward_id = $_GET['ward_id'];
+    $shift = $_GET['shift'];
 
     // палати, де чергує обрана медсестра
     $stmt_ward_nurse = $pdo->prepare("SELECT ward.name FROM ward
