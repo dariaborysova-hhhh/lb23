@@ -1,10 +1,10 @@
 <?php
 header('Content-Type: text/plain; charset=utf-8');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nurse_id = $_POST['nurse_id'] ?? '—';
-    $ward_id = $_POST['ward_id'] ?? '—';
-    $shift = $_POST['shift'] ?? '—';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $nurse_id = $_GET['nurse_id'] ?? '—';
+    $ward_id = $_GET['ward_id'] ?? '—';
+    $shift = $_GET['shift'] ?? '—';
 
     echo "Результати у форматі TXT:\n";
     echo "Медсестра ID: $nurse_id\n";
@@ -13,3 +13,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Метод не підтримується.";
 }
+
